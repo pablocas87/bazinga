@@ -1,0 +1,370 @@
+/* General */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Fondo negro */
+  color: #FFFFFF; /* Texto blanco */
+  opacity: 0; /* Inicialmente invisible para la animación */
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+header {
+  background-color: #FF4500; /* Rojo del logo */
+  color: #FFFFFF;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: #FFD700; /* Amarillo */
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  color: #FFA500; /* Naranja */
+  transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid #FFD700;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #FFD700;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.1rem;
+}
+
+footer img {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+/* Secciones principales */
+main {
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.servicio {
+  background: #1A1A1A; /* Gris oscuro */
+  border: 1px solid #FFD700; /* Amarillo */
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.servicio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5); /* Sombra amarilla */
+}
+
+.servicio h2 {
+  font-size: 1.5rem;
+  color: #FFD700; /* Amarillo */
+}
+
+.servicio p {
+  margin: 0.5rem 0;
+}
+
+/* Botones */
+button {
+  background-color: #FF4500; /* Rojo */
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #FFA500; /* Naranja */
+  transform: scale(1.05);
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1A1A1A; /* Gris oscuro */
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #FFD700; /* Amarillo */
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2); /* Sombra suave */
+  max-width: 60%;
+  width: auto;
+  margin: 2rem auto;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #FFD700; /* Amarillo */
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #FFD700; /* Amarillo */
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #000000; /* Fondo negro */
+  color: #FFFFFF; /* Texto blanco */
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #FFA500; /* Naranja */
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.5); /* Resaltar foco */
+}
+
+form button {
+  margin-top: 1rem;
+  background-color: #FF4500; /* Rojo */
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  width: 100%;
+}
+
+form button:hover {
+  background-color: #FFA500; /* Naranja */
+  transform: scale(1.05);
+}
+
+/* Snackbar */
+.snackbar {
+  visibility: hidden;
+  opacity: 0;
+  min-width: 300px;
+  background-color: #FF4500; /* Fondo rojo */
+  color: #FFFFFF; /* Texto blanco */
+  text-align: center;
+  border-radius: 8px;
+  padding: 1rem;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+  transition: visibility 0.3s, opacity 0.3s ease-in-out, transform 0.3s;
+}
+
+.snackbar.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#equiposContainer {
+  display: block; /* Esto asegura que el contenedor sea visible */
+  width: 100%; /* Permite que el contenedor ocupe todo el ancho disponible */
+  max-width: 100%; /* Elimina cualquier restricción de ancho */
+  margin: 0 auto; /* Centra el contenedor si es necesario */
+}
+
+
+.equipos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Tamaño mínimo ajustado */
+  gap: 1.5rem;
+  justify-content: center; /* Centra la grilla si sobra espacio */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  margin-bottom: 1.5rem; /* Añade margen inferior */
+
+}
+
+
+.equipo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1A1A1A;
+  border: 1px solid #FFD700;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.equipo-item label {
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+.equipo-item input {
+  width: 80px;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  background-color: #000;
+  color: #FFF;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden; /* Inicialmente oculto */
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease-in-out;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #1A1A1A; /* Fondo del modal */
+  color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content #confirmarReserva {
+  background-color: #FF4500; /* Rojo */
+  color: #FFFFFF;
+}
+
+.modal-content #confirmarReserva:hover {
+  background-color: #FF6347; /* Rojo más claro */
+}
+
+.modal-content #cancelarReserva {
+  background-color: #444444; /* Gris oscuro */
+  color: #FFFFFF;
+}
+
+.modal-content #cancelarReserva:hover {
+  background-color: #666666; /* Gris más claro */
+}
+
+/* Transiciones de página */
+body.fade-out {
+  animation: fadeOut 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  nav a {
+    margin: 0 0.5rem;
+  }
+
+  .servicio {
+    padding: 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  form button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .equipos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}

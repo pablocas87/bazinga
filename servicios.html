@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios - Bazinga</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Servicios Disponibles</h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="reservas.php">Reservas</a>
+        <a href="reparacion.php">Reparación</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Nuestros Servicios</h2>
+      <div class="grid">
+        <section v-for="servicio in servicios" :key="servicio.id" class="servicio">
+          <h2>{{ servicio.nombre }}</h2>
+          <p>{{ servicio.descripcion }}</p>
+          <p><strong>{{ servicio.precio }}</strong></p>
+          <button @click="handleClick(servicio)">
+            {{ servicio.nombre === 'Reparación de Audio' ? 'Consultar' : 'Reservar Ahora' }}
+          </button>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          servicios: [
+            { id: 1, nombre: "Ensayos 2 horas", descripcion: "Ensayo de 2 horas.", precio: "$6,000" },
+            { id: 2, nombre: "Ensayos 4 horas", descripcion: "Ensayo de 4 horas.", precio: "$8,000" },
+            { id: 3, nombre: "Festivales", descripcion: "Servicio completo para festivales.", precio: "$12,000" },
+            { id: 4, nombre: "Peñas y Eventos", descripcion: "Cobertura de audio para eventos.", precio: "$10,000" },
+            { id: 5, nombre: "Alquiler de Equipos", descripcion: "Precio a convenir según necesidades.", precio: "Precio a convenir" },
+            { id: 6, nombre: "Reparación de Audio", descripcion: "Servicio técnico especializado.", precio: "Precio a convenir" }
+          ],
+        };
+      },
+      methods: {
+        handleClick(servicio) {
+          if (servicio.nombre === 'Reparación de Audio') {
+            // Redirige a reparación.php
+            window.location.href = 'reparacion.php';
+          } else {
+            // Redirige al formulario de reservas con el servicio seleccionado
+            window.location.href = `reservas.php?servicio=${encodeURIComponent(servicio.nombre)}`;
+          }
+        },
+      },
+    }).mount('#app');
+  </script>
+</body>
+<footer>
+  <h3>Contacto</h3>
+  <a href="https://www.facebook.com/bazinga.amplificacion/" target="_blank">
+    <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width: 24px;"> Facebook
+  </a>
+  <a href="https://wa.me/59895905719" target="_blank">
+    <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width: 24px;"> WhatsApp
+  </a>
+</footer>
+
+</html>

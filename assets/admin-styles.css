@@ -1,0 +1,157 @@
+/* Estilo para encabezado */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 3px solid #3e8e41;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+    background-color: #3e8e41;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #2e7031;
+}
+
+/* Estilo para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+table thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table th,
+table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+    background-color: #353535;
+}
+
+table tr:hover {
+    background-color: #913232;
+}
+
+table th {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Estilo para botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.modal-content button {
+    margin: 0.5rem;
+}
+
+/* Dashboard styling */
+main {
+    text-align: center;
+    padding: 2rem;
+}
+
+main p {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.dashboard-card {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card h2 {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-card p {
+    font-size: 1rem;
+    color: #333;
+}

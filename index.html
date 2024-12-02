@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bazinga - Audio e iluminación</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <!-- Librería de animaciones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+  <div id="app">
+    <header class="animate__animated animate__fadeInDown">
+      <h1>Bazinga</h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="reservas.php">Reservas</a>
+        <a href="reparacion.php">Reparación</a>
+      </nav>
+    </header>
+
+    <main class="animate__animated animate__fadeInUp">
+      <section class="hero">
+        <h2>Bienvenido a Bazingapp</h2>
+        <p>Tu mejor solución en audio e iluminación para eventos.</p>
+        <button class="cta-btn" onclick="irAServicios()">Explorar Servicios</button>
+      </section>
+
+      <section class="features">
+        <div>
+          <img src="assets/images/alquiler.webp" alt="Alquiler de equipos">
+          <p>Alquiler de Equipos</p>
+        </div>
+        <div>
+          <img src="assets/images/servicios.webp" alt="Servicios">
+          <p>Servicios Personalizados</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>Contacto</h3>
+      <a href="https://www.facebook.com/bazinga.amplificacion/" target="_blank">
+        <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"> Facebook
+      </a>
+      <a href="https://wa.me/59895905719" target="_blank">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp"> WhatsApp
+      </a>
+    </footer>
+  </div>
+
+  <script>
+    function irAServicios() {
+      window.location.href = 'servicios.html';
+    }
+  </script>
+</body>
+</html>
