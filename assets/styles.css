@@ -29,7 +29,7 @@ header {
   top: 0;
   z-index: 100;
   transition: background-color 0.3s, padding 0.3s;
-  overflow: hidden; /* Para contener el efecto RTA */
+  overflow: visible; /* Para contener el efecto RTA */
 }
 
 /* Navbar */
@@ -87,32 +87,6 @@ header {
 
 .menu-icon.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Responsivo para el menú */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: -100%;
-    width: 100%;
-    flex-direction: column;
-    background-color: #FF4500;
-    transition: left 0.3s ease-in-out;
-  }
-
-  .nav-links.active {
-    left: 0;
-  }
-
-  .nav-links a {
-    margin: 1rem 0;
-    text-align: center;
-  }
-
-  .menu-icon {
-    display: flex;
-  }
 }
 
 /* Efecto RTA ajustado */
@@ -197,6 +171,12 @@ footer img {
 /* Secciones principales */
 main {
   padding: 0; /* Eliminamos el padding para evitar espacios no deseados */
+}
+h2 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
 }
 
 /* Hero Section con fondo "servicios.webp" */
@@ -514,25 +494,29 @@ body.fade-out {
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 100%;
-    left: -100%;
+    top: 100%; /* Justo debajo del header */
+    left: 0; /* Alineado al lado izquierdo */
     width: 100%;
     flex-direction: column;
-    background-color: #FF4500;
-    transition: left 0.3s ease-in-out;
+    background-color: #ff4400e0;
+    overflow: hidden; /* Necesario para que funcione max-height */
+    max-height: 0; /* Altura inicial cero */
+    transition: max-height 0.3s ease-in-out; /* Transición en max-height */
+    z-index: 99;
   }
 
   .nav-links.active {
-    left: 0;
+    max-height: 500px; /* Valor suficiente para contener el menú */
   }
 
   .nav-links a {
-    margin: 1rem 0;
-    text-align: center;
+    margin: 1rem 0; /* Espaciado vertical entre enlaces */
+    text-align: center; /* Centra el texto */
+    padding: 1rem; /* Espaciado interno */
   }
 
   .menu-icon {
-    display: flex;
+    display: flex; /* Muestra el ícono en pantallas pequeñas */
   }
 
   .navbar h1 {

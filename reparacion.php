@@ -18,18 +18,57 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reparación de Audio - Bazinga</title>
     <link rel="stylesheet" href="assets/styles.css">
+  <!-- Fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
-        <header>
-            <h1>Servicio de Reparación de Audio</h1>
-            <nav>
-                <a href="index.html">Inicio</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="reservas.php">Reservas</a>
-                <a href="reparacion.php">Reparación</a>
-            </nav>
-        </header>
+    <header>
+      <div class="navbar">
+      <h1><a href="index.html">Bazinga</a></h1>
+      <!-- Botón para menú móvil -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="servicios.html">Servicios</a>
+          <a href="reservas.php">Reservas</a>
+          <a href="reparacion.php">Reparación</a>
+        </nav>
+      </div>
+      <!-- Efecto RTA de audio -->
+      <div class="rta-effect">
+        <!-- Generar más barras para cubrir todo el ancho -->
+        <!-- Usamos 20 barras para un efecto más completo -->
+        <!-- Aquí están las 20 barras -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </header>
 
         <main>
             <h2>Especifica el problema para solicitar un presupuesto</h2>
@@ -84,6 +123,14 @@ if ($conn->connect_error) {
                 showSnackbar("Error en la conexión con el servidor.");
             }
         });
+
+            // Funcionalidad del menú móvil
+    function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+  const menuToggle = document.querySelector('.menu-toggle');
+  menuToggle.classList.toggle('active');
+}
     </script>
 </body>
 <footer>

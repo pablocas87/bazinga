@@ -35,21 +35,61 @@ if ($equiposResult->num_rows > 0) {
     <title>Reservas - Bazinga</title>
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+     <!-- Fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
     <div id="app">
-        <header>
-            <h1>Reserva tu Servicio</h1>
-            <nav>
-                <a href="index.html">Inicio</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="reservas.php">Reservas</a>
-                <a href="reparacion.php">Reparación</a>
-            </nav>
-        </header>
+    <header>
+      <div class="navbar">
+      <h1><a href="index.html">Bazinga</a></h1>
+        <!-- Botón para menú móvil -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="servicios.html">Servicios</a>
+          <a href="reservas.php">Reservas</a>
+          <a href="reparacion.php">Reparación</a>
+        </nav>
+      </div>
+      <!-- Efecto RTA de audio -->
+      <div class="rta-effect">
+        <!-- Generar más barras para cubrir todo el ancho -->
+        <!-- Usamos 20 barras para un efecto más completo -->
+        <!-- Aquí están las 20 barras -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </header>
 
         <main>
+        <h2>Reservas</h2>
+
             <form id="reservaForm" action="procesar_reserva.php" method="POST">
                 <label for="servicio">Selecciona un servicio:</label>
                 <select id="servicio" name="servicio" required>
@@ -199,6 +239,14 @@ if ($equiposResult->num_rows > 0) {
                 snackbar.classList.remove("show");
             }, 3000);
         }
+
+            // Funcionalidad del menú móvil
+    function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+  const menuToggle = document.querySelector('.menu-toggle');
+  menuToggle.classList.toggle('active');
+}
     </script>
 </body>
 <footer>
