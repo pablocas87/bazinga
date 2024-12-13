@@ -1,4 +1,7 @@
 <?php
+// Incluir configuración de la base de datos
+$config = include('../config.php');
+
 session_start();
 
 // Verificar si el administrador está logueado
@@ -7,18 +10,15 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     exit();
 }
 
-// Incluir configuración de la base de datos
-$config = include('../config.php');
-
 // Conectar a la base de datos
 $conn = new mysqli($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Verificar si se recibió un ID válido
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = intval($_GET['id']);
+// Verificar si se recibió un ID válido vía POST
+if (isset($_POST['id']) && is_numeric($_POST['id'])) {
+    $id = intval($_POST['id']);
 
     // Eliminar la reparación
     $query = "DELETE FROM reparaciones WHERE id = ?";
@@ -37,4 +37,3 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 }
 
 $conn->close();
-?>

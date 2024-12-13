@@ -14,7 +14,6 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     exit();
 }
 
-
 // Conexión a la base de datos
 $conn = new mysqli($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
 if ($conn->connect_error) {
@@ -27,7 +26,7 @@ $reservasResult = $conn->query($reservasQuery);
 $totalReservas = $reservasResult->fetch_assoc()['total'];
 
 // Obtener el total de reparaciones pendientes
-$reparacionesQuery = "SELECT COUNT(*) as total FROM reparaciones WHERE fecha_solicitud >= NOW()";
+$reparacionesQuery = "SELECT COUNT(*) as total FROM reparaciones";
 $reparacionesResult = $conn->query($reparacionesQuery);
 $totalReparaciones = $reparacionesResult->fetch_assoc()['total'];
 
@@ -65,7 +64,82 @@ $conn->close();
                 <h2>Reparaciones</h2>
                 <p>Total Pendientes: <?php echo $totalReparaciones; ?></p>
             </a>
+            <!-- Tarjeta para abrir el modal de añadir servicio o reparación -->
+            <div class="dashboard-card" id="add-service-btn" style="cursor: pointer;">
+                <h2>Añadir Servicio o Reparación</h2>
+                <p>Click para agregar un nuevo ítem</p>
+            </div>
+        </div>
+        
+        <!-- Modal para añadir servicio o reparación -->
+        <div id="add-service-modal" class="modal">
+            <div class="modal-content">
+                <h2>Añadir Ítem</h2>
+                <form action="agregar_servicio.php" method="POST">
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="servicio">Servicio</option>
+                        <option value="reparacion">Reparación</option>
+                    </select>
+
+                    <!-- Campos para servicio -->
+                    <div id="servicio-fields" class="hidden">
+                        <label for="servicio-nombre">Nombre del Servicio:</label>
+                        <input type="text" id="servicio-nombre" name="servicio_nombre">
+                    </div>
+
+                    <!-- Campos para reparación -->
+                    <div id="reparacion-fields" class="hidden">
+                        <label for="reparacion-nombre">Nombre:</label>
+                        <input type="text" id="reparacion-nombre" name="reparacion_nombre">
+
+                        <label for="reparacion-email">Email:</label>
+                        <input type="email" id="reparacion-email" name="reparacion_email">
+
+                        <label for="reparacion-problema">Problema:</label>
+                        <textarea id="reparacion-problema" name="reparacion_problema"></textarea>
+                    </div>
+
+                    <button type="submit">Agregar</button>
+                    <button type="button" id="close-modal">Cancelar</button>
+                </form>
+            </div>
         </div>
     </main>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const addServiceBtn = document.getElementById("add-service-btn");
+        const addServiceModal = document.getElementById("add-service-modal");
+        const closeModalBtn = document.getElementById("close-modal");
+        
+        const tipoSelect = document.getElementById("tipo");
+        const servicioFields = document.getElementById("servicio-fields");
+        const reparacionFields = document.getElementById("reparacion-fields");
+
+        addServiceBtn.addEventListener("click", () => {
+            addServiceModal.classList.add("show");
+        });
+
+        closeModalBtn.addEventListener("click", () => {
+            addServiceModal.classList.remove("show");
+        });
+
+        tipoSelect.addEventListener("change", () => {
+            const tipo = tipoSelect.value;
+            if (tipo === 'servicio') {
+                servicioFields.classList.remove('hidden');
+                reparacionFields.classList.add('hidden');
+            } else if (tipo === 'reparacion') {
+                reparacionFields.classList.remove('hidden');
+                servicioFields.classList.add('hidden');
+            } else {
+                servicioFields.classList.add('hidden');
+                reparacionFields.classList.add('hidden');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

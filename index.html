@@ -69,6 +69,13 @@
           <button class="cta-btn" onclick="irAServicios()">Explorar Servicios</button>
         </div>
       </section>
+      <section class="hero" style="background-image: url('assets/images/alquiler.webp');">
+        <div class="hero-content" data-aos="fade-up">
+          <h2>Alquiler de equipos</h2>
+          <p>Reservá los equipos que precises.</p>
+          <button class="cta-btn" onclick="irAServicios()">Reservar</button>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -96,6 +103,16 @@
     // Efecto de cambio en el header al hacer scroll
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+        // Efecto de cambio en el header al hacer scroll
+        window.addEventListener('scroll', function() {
+      const header = document.querySelector('.rta-effect');
       if (window.scrollY > 50) {
         header.classList.add('scrolled');
       } else {

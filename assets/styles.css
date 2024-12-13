@@ -141,9 +141,18 @@ header {
 header.scrolled {
   background-color: rgba(0, 0, 0, 0.8);
 }
+.rta-effect.scrolled {
+  background-color: rgba(0, 0, 0, 0);
+  width: 0%;
+
+}
 
 /* Footer */
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Esto permite que si la pantalla es muy pequeña, se rompa a la siguiente línea */
   background-color: #000000;
   color: #FFFFFF;
   padding: 1.5rem;
@@ -154,6 +163,7 @@ footer {
 
 footer h3 {
   margin-bottom: 1rem;
+  flex-basis: 100%; /* De esta forma el título ocupa todo el ancho antes de los links */
 }
 
 footer a {
@@ -161,12 +171,15 @@ footer a {
   text-decoration: none;
   margin: 0 1rem;
   font-size: 1.1rem;
+  display: flex;
+  align-items: center; /* Para centrar verticalmente el ícono con el texto */
 }
 
 footer img {
   vertical-align: middle;
   margin-right: 0.5rem;
 }
+
 
 /* Secciones principales */
 main {
@@ -291,7 +304,7 @@ form {
   border-radius: 8px;
   border: 1px solid #FFD700; /* Amarillo */
   box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2); /* Sombra suave */
-  max-width: 60%;
+  max-width: 80%;
   width: auto;
   margin: 2rem auto;
 }
@@ -563,5 +576,22 @@ body.fade-out {
 
   .equipos-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 420px) {
+  /* Intentamos mantenerlos en una misma línea reduciendo tamaños y márgenes */
+  footer {
+    flex-direction: row; /* Al ser más angosto, intentamos en una fila */
+  }
+
+  footer a {
+    margin: 0 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  footer img {
+    width: 34px; /* Iconos más pequeños */
+    margin-right: 0.3rem;
   }
 }
